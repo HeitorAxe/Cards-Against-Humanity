@@ -1,0 +1,243 @@
+body
+{
+    padding: 0;
+    margin: 0;
+    background-color: black;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+        
+}
+h1
+{
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: 2.5em;
+  width: 300px;
+}
+
+.display
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.deck
+{
+
+    justify-content: center;
+    align-self: center;
+    border-radius: 16px;
+    display: flex;
+    padding: 2rem;
+
+    overflow-x: scroll;
+
+}
+
+.card-display
+{
+
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+  
+}
+.front-card
+{
+    display: grid;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+
+}
+.front-card:hover
+{
+    transform: rotateY(180deg);
+}
+
+.display-card
+{
+    margin: auto;
+    grid-column: 1;
+    grid-row: 1;
+    justify-content: space-between;
+    align-content: center;
+    display:  flex;
+    text-align: center;
+
+    flex-direction: column;
+
+    width: 220px;
+    height: 350px;
+    
+    padding:1.5rem;
+
+    border-radius: 16px;    
+    background-color: white;
+  
+    color: black;
+    font-weight: 700;
+    font-size: 1.3em;
+  
+    box-shadow: -1rem 0 1.5rem rgba(0, 0, 0, 0.658);/*the -1 makes creates the stack effect;*/
+
+    backface-visibility: hidden;
+
+}
+.display-card-back
+{
+    margin: auto;
+    grid-column: 1;
+    grid-row: 1;
+
+    justify-content: center;
+    text-align: center;
+    display:  flex;
+    position: relative;
+    flex-direction: column;
+
+    width: 220px;
+    height: 350px;
+    
+    padding:1.5rem;
+
+    border-radius: 16px;    
+    background-color: black;
+    border: 3px solid white;
+    box-shadow: -1rem 0 1.5rem rgba(0, 0, 0, 0.658);/*the -1 makes creates the stack effect;*/
+
+    color: white;
+    font-weight: 600;
+    font-size: 1.3em;
+
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+}
+
+.pass
+{
+  background-color: rgba(0,0,0,0);
+  border: none;
+  color: white;
+  font-size: 200%;
+  font-weight: 800;
+  margin-right: 20px;
+}
+.take
+{
+  background-color: rgba(0,0,0,0);
+  border: none;
+  color: white;
+  font-size: 200%;
+  font-weight: 800;
+  margin-left: 20px;
+}
+
+.deck-card
+{
+    justify-content: space-between;
+    display:  flex;
+    position: relative;
+    flex-direction: column;
+
+    font-size: 0.85em;
+    color: white;
+
+    width: 160px;
+    height: 260px;
+    min-width: 160px;
+    padding:1.5rem;
+
+    border-radius: 16px;    
+    background-color: black;
+    border: 3px solid white;
+    box-shadow: -1rem 0 1.5rem rgba(0, 0, 0, 0.658);/*the -1 makes creates the stack effect;*/
+
+    transition: .2s;
+}
+
+.cardImage
+{
+    width: 60%;
+    height: 60%;
+    align-self: center;
+}
+.cardDescription
+{
+    align-self: center;
+}
+.cardTopValue
+{
+    align-self: flex-start;
+}
+.cardBottomValue
+{
+    padding-top: 10%;
+    align-self: flex-end;
+}
+
+.display-card.cardBottomValue
+{
+    padding: 100px;
+}
+
+
+.deck-card:hover{
+    transform: translateY(-1rem);
+}
+
+/*this selects all the siblings after the one hovered, ad pushes it to the side*/
+.deck-card:hover~.deck-card
+{
+    transform: translateX(130px);
+}
+
+/*this offsets the margin so the other elements keep stacked*/
+.deck-card:not(:first-child)
+{
+    margin-left: -130px;
+}
+.deck::-webkit-scrollbar
+{
+    width: 10px;
+    height: 10px;
+}
+.deck::-webkit-scrollbar-thumb
+{
+    background-color: #1B2430;
+    border-radius: 10px;
+    box-shadow: inset 2px 2px 2px hsla(0, 0%, 100%, .25), inset -2px -2px 2px rgba(0,0,0,.25);
+}
+
+@media (max-width: 600px)
+{
+  h1
+  {
+    font-size: 1.5em;
+  }
+
+  .display-card
+  {
+      width: 180px;
+      height: 320px;    
+  }
+  
+  .display-card-back
+  {
+    width: 180px;
+    height: 320px;
+  }
+  
+  .deck-card
+  {
+      width: 75px;
+      height: 200px;
+      min-width: 120px;
+      padding:1.5rem;
+  }
+
+}
